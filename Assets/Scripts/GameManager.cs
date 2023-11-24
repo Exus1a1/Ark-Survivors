@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -11,10 +8,10 @@ public class GameManager : Singleton<GameManager>
     }
     private void CheckGameManager()
     {
-        if (tag == "GameManager")
+        if (CompareTag("GameManager"))
         {
             CheckSingle();
-            InitGamanger();
+            InitGameManager();
             return;
         }
         else
@@ -37,15 +34,14 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    private void InitGamanger()
+    private void InitGameManager()
     {
         GetOrAddComponent<InputManager>();
     }
 
     private void GetOrAddComponent<T>() where T : Component
     {
-        T temp = GetComponent<T>();
-        if (temp == null) {
+        if (!TryGetComponent<T>(out _)) {
             gameObject.AddComponent<T>();
         }
     }

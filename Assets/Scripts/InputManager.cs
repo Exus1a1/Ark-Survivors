@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class InputManager: Singleton<InputManager>
 {
-    public string shoot;
-    public string up;
-    public string right;
-    public string left;
-    public string down;
+    public int attack = 0;
+    public KeyCode up = KeyCode.W;
+    public KeyCode right = KeyCode.D;
+    public KeyCode left = KeyCode.A;
+    public KeyCode down = KeyCode.S;
 
     private void Awake()
     {

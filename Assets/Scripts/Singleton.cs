@@ -8,8 +8,8 @@ public abstract class Singleton<T> : MonoBehaviour
     public static T Instance 
     {
         get 
-        { 
-            return instance; 
+        {
+              return instance;
         } 
     }
 }
