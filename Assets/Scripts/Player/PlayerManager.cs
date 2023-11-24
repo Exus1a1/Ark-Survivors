@@ -6,11 +6,13 @@ public class PlayerManager : MonoBehaviour
 {
     public PlayerController pc;
     public StateManager sm;
+    public WeaponManager wm;
 
     void Awake()
     {
-        pc = Bind<PlayerController>(transform.Find("Model").gameObject);
+        pc = Bind<PlayerController>(gameObject);
         sm = Bind<StateManager>(gameObject);
+        wm = Bind<WeaponManager>(transform.Find("Weapon").gameObject);
     }
 
     // Update is called once per frame
